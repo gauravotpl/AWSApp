@@ -10,7 +10,7 @@ namespace AWSApp.Controllers
         [HttpGet]
         public string Get()
         {
-            return "test";
+            return "test"; 
         }
     }
 }
