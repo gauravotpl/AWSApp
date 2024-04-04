@@ -10,4 +10,15 @@
     <None Include="AWSApp.sln" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AWSApp.Application.Logic\AWSApp.Application.Logic.csproj" />
+    <ProjectReference Include="..\AWSApp.Application\AWSApp.Application.csproj" />
+    <ProjectReference Include="..\AWSApp.Common\AWSApp.Common.csproj" />
+    <ProjectReference Include="..\AWSApp.Infrastructure.IoC\AWSApp.Infrastructure.IoC.csproj" />
+  </ItemGroup>
+
 </Project>
