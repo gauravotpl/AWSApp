@@ -8,6 +8,10 @@ namespace AWSApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "AWS API", Version = "v1" });
+            });
 
             var app = builder.Build();
 
@@ -16,8 +20,17 @@ namespace AWSApp
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseStaticFiles();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "AWS API v1");
+            });
+            app.UseStaticFiles();
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapFallbackToFile("/swagger/index.html");
+            //});
             app.UseRouting();
 
             app.UseAuthorization();
